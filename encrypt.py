@@ -7,7 +7,7 @@ lettercalc=0
 final="\n\n\n\n\n\n\nEncrypted Text: "
 
 if check_algorithm == 311:
-    input_msg = "selamabinaber"
+    input_msg = "testdoc"
     engel=len(input_msg)
     akis_kodu=0
     first_letter = ord(input_msg[akis_kodu])-96
