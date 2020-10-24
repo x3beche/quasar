@@ -1,10 +1,13 @@
+import os
 f=open("keyOperations\\banner", "r")
 print(f.read())
 f.close()
-
-fn="keyOperations\\key1001"
+keynum=input("Enter the number at the end of the key file : ")
+os.system('cls' if os.name == 'nt' else 'clear')
+fn="keyOperations\\key"+keynum
 f=open(fn,"r")
 klst=f.read().split(",")
+f.close()
 rtry=[[],[]]
 for x in range(0,26):
     cache=klst[x].split("-")
@@ -12,5 +15,3 @@ for x in range(0,26):
     rtry[1].append(cache[1])
     exec(rtry[1][x]+"=rtry[0][x]")
     cache.clear()
-
-print(A,B,C,D,E,F,G)
