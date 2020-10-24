@@ -1,11 +1,17 @@
 import os
 
-#KEY COMPLIER
-f=open("keyOperations\\banner", "r")
-print(f.read())
-f.close()
+#functions
+def banner():
+    f=open("keyOperations\\banner", "r")
+    print(f.read())
+    f.close()
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+#key complier
+banner()
 keynum=input("Enter the number at the end of the key file : ")
-os.system('cls' if os.name == 'nt' else 'clear')
+clear()
 fn="keyOperations\\key"+keynum
 f=open(fn,"r")
 klst=f.read().split(",")
@@ -18,4 +24,4 @@ for x in range(0,26):
     exec(rtry[1][x]+"=rtry[0][x]")
     cache.clear()
 
-#ENCRYPT START
+#encrypt start
