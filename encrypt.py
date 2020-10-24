@@ -1,4 +1,6 @@
 import os
+
+#KEY COMPLIER
 f=open("keyOperations\\banner", "r")
 print(f.read())
 f.close()
@@ -15,3 +17,5 @@ for x in range(0,26):
     rtry[1].append(cache[1])
     exec(rtry[1][x]+"=rtry[0][x]")
     cache.clear()
+
+#ENCRYPT START
