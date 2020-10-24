@@ -16,6 +16,7 @@ fn="keyOperations\\key"+keynum
 f=open(fn,"r")
 klst=f.read().split(",")
 f.close()
+a=klst[0].split("-")
 rtry=[[],[]]
 for x in range(0,26):
     cache=klst[x].split("-")
@@ -23,5 +24,18 @@ for x in range(0,26):
     rtry[1].append(cache[1])
     exec(rtry[1][x]+"=rtry[0][x]")
     cache.clear()
+oW=rtry[1][ord(a[1])-65]
 
+def call(oW,nW):
+    pass
+    
 #encrypt start
+banner()
+print("\n1-) Encrypt file (only txt files support)\n2-) Encrypt normal text\n")
+obs=input("Option : ")
+if int(obs)==1:
+    pass
+elif int(obs)==2:
+    pass
+else:
+    print("Wrong option.")
