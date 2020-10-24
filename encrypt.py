@@ -25,16 +25,10 @@ for x in range(0,26):
     exec(rtry[1][x]+"=rtry[0][x]")
     cache.clear()
 oW=rtry[1][ord(a[1])-65]
-<<<<<<< Updated upstream
-=======
 
 def call(oW,nW):
-    pass
->>>>>>> Stashed changes
+    pas
 
-def call(oW,nW):
-    pass
-    
 #encrypt start
 banner()
 print("\n1-) Encrypt file (only txt files support)\n2-) Encrypt normal text\n")
