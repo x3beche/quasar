@@ -10,7 +10,7 @@ def line():
     print("-----------------------------------------------------")
 def opnr(data):
     print("\n")
-    f = open("key"+str(data), "r")
+    f = open(data, "r")
     klst=f.read().split(",")
     for x in range(0,len(klst)):
         print(klst[x])
@@ -20,8 +20,7 @@ banner()
 line()
 keynum=input("Enter the number at the end of the key file : ")
 line()
-#clear()
-fn="key"+keynum
+fn="key"+keynum+".ax"
 fc = os.path.isfile(fn)
 if fc==True:
     f=open(fn,"r")
@@ -75,11 +74,8 @@ if int(obs)==2:
     fnm=input("File Name » ")
     line()
     f=open(fnm+".txt","r")
-    text=f.read()
+    text=f.read().upper().replace(" ","").replace("\n","")
     f.close()
-    text=text.upper()
-    text=text.replace(" ","")
-    text=text.replace("\n","")
     for y in range(0,len(text)):
         oW=f_encrypt(oW,text[y],rtry)
         final=final+oW
@@ -90,21 +86,16 @@ if int(obs)==2:
     line()
 elif int(obs)==1:
     final=""
-    text=input("Text » ")
-    text=text.upper()
-    text=text.replace(" ","")
+    text=input("Text » ").upper().replace(" ","")
     line()
     for y in range(0,len(text)):
-        #final.append(f_encrypt(oW,text[y],rtry))
         oW=f_encrypt(oW,text[y],rtry)
         final=final+oW
     print("Normal text:",text,"\nEncrypted text:",final)
     line()
 elif int(obs)==3:
     final=""
-    text=input("Text » ")
-    text=text.upper()
-    text=text.replace(" ","")
+    text=input("Text » ").upper().replace(" ","")
     line()
     for y in range(0,len(text)):
         nW=text[y]
@@ -117,11 +108,8 @@ elif int(obs)==4:
     fnm=input("File Name » ")
     line()
     f=open(fnm+".txt","r")
-    text=f.read()
+    text=f.read().upper().replace(" ","").replace("\n","")
     f.close()
-    text=text.upper()
-    text=text.replace(" ","")
-    text=text.replace("\n","")
     for y in range(0,len(text)):
         nW=text[y]
         final=final+f_decrypt(oW,nW,rtry)
@@ -135,6 +123,6 @@ elif int(obs)==5:
     clear()
     banner()
     line()
-    opnr(keynum)
+    opnr(fn)
 else:
     print("Wrong option.")

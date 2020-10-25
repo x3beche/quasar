@@ -20,7 +20,7 @@ for y in range(1,27):
             rll[1].append(y)
             rll[0].append(rl[0][z])
 rfn=random.randint(1,10**4)
-fn="key"+str(rfn)
+fn="key"+str(rfn)+".ax"
 f = open(fn, "a")
 for a in range(0,26):
     f.write(str(rll[1][a]))
