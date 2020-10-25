@@ -71,7 +71,7 @@ while stfb==True:
         if g!= 351:
             print("Key file is missing or incorrect.")
             pause()
-        oW=rtry[1][ord(a[1])-65]
+
         stfb=False
     else:
         clear()
@@ -91,6 +91,9 @@ while True:
     obs=input("Option » ")
     clear()
     if int(obs)==2:
+        oW=rtry[1][ord(a[1])-65]
+        banner()
+        line()
         final=""
         fnm=input("File Name » ")
         line()
@@ -107,6 +110,7 @@ while True:
         line()
         pause()
     elif int(obs)==1:
+        oW=rtry[1][ord(a[1])-65]
         banner()
         line()
         final=""
@@ -119,8 +123,11 @@ while True:
         line()
         pause()
     elif int(obs)==3:
+        oW=rtry[1][ord(a[1])-65]
+        banner()
+        line()
         final=""
-        text=input("Text » ").upper().replace(" ","")
+        text=input("Encrypted text » ").upper().replace(" ","")
         line()
         for y in range(0,len(text)):
             nW=text[y]
@@ -129,7 +136,11 @@ while True:
         print("Decrypted text:",final)
         line()
         pause()
+
     elif int(obs)==4:
+        oW=rtry[1][ord(a[1])-65]
+        banner()
+        line()
         final=""
         fnm=input("File Name » ")
         line()
@@ -154,5 +165,7 @@ while True:
         print("\n")
         pause()
     else:
+        banner()
+        line()
         print("Wrong option.")
         pause()
