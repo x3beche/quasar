@@ -24,18 +24,36 @@ for x in range(0,26):
     rtry[1].append(cache[1])
     exec(rtry[1][x]+"=rtry[0][x]")
     cache.clear()
+
+#encrypt algorithm
 oW=rtry[1][ord(a[1])-65]
+final=""
+def call(oW,nW,rtry):
+    own=int(rtry[0][rtry[1].index(oW)])
+    nwn=int(rtry[0][rtry[1].index(nW)])
+    if own>nwn:
+        chc=26-own+nwn
+    else:
+        chc=nwn-own
+    return rtry[1][chc-1]
 
-def call(oW,nW):
-    pas
-
-#encrypt start
+#ui start
 banner()
 print("\n1-) Encrypt file (only txt files support)\n2-) Encrypt normal text\n")
 obs=input("Option : ")
 if int(obs)==1:
     pass
 elif int(obs)==2:
-    pass
+    clear()
+    banner()
+    print("\nWrite text\n")
+    text=input("->")
+    for y in range(0,len(text)):
+        #final.append(call(oW,text[y],rtry))
+        oW=call(oW,text[y],rtry)
+        final=final+oW
+    clear()
+    banner()
+    print("\nNormal text : ",text,"\nEncrypted text : ",final)
 else:
     print("Wrong option.")
