@@ -23,6 +23,24 @@ def opnr(data):
         print(klst[x])
     f.close()
 
+def f_encrypt(oW,nW,rtry):
+    own=int(rtry[0][rtry[1].index(oW)])
+    nwn=int(rtry[0][rtry[1].index(nW)])
+    if own>nwn:
+        chc=26-own+nwn
+    else:
+        chc=nwn-own
+    return rtry[1][chc-1]
+def f_decrypt(oW,nW,rtry):
+    own=int(rtry[0][rtry[1].index(oW)])
+    nwn=int(rtry[0][rtry[1].index(nW)])
+    if own+nwn>26:
+        chc=own+nwn-26
+    else:
+        chc=nwn+own
+    return rtry[1][chc-1]
+
+
 
 #key complier
 stfb=True
@@ -53,6 +71,7 @@ while stfb==True:
         if g!= 351:
             print("Key file is missing or incorrect.")
             pause()
+        oW=rtry[1][ord(a[1])-65]
         stfb=False
     else:
         clear()
@@ -62,24 +81,6 @@ while stfb==True:
         pause()
 
 
-#encrypt algorithms
-oW=rtry[1][ord(a[1])-65]
-def f_encrypt(oW,nW,rtry):
-    own=int(rtry[0][rtry[1].index(oW)])
-    nwn=int(rtry[0][rtry[1].index(nW)])
-    if own>nwn:
-        chc=26-own+nwn
-    else:
-        chc=nwn-own
-    return rtry[1][chc-1]
-def f_decrypt(oW,nW,rtry):
-    own=int(rtry[0][rtry[1].index(oW)])
-    nwn=int(rtry[0][rtry[1].index(nW)])
-    if own+nwn>26:
-        chc=own+nwn-26
-    else:
-        chc=nwn+own
-    return rtry[1][chc-1]
 
 
 
