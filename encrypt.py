@@ -7,11 +7,14 @@ def banner():
     f.close()
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
-
+def line():
+    print("-----------------------------------------------------")
 #key complier
 banner()
+line()
 keynum=input("Enter the number at the end of the key file : ")
-clear()
+line()
+#clear()
 fn="keyOperations\\key"+keynum
 fc = os.path.isfile(fn)
 if fc==True:
@@ -45,23 +48,26 @@ def call(oW,nW,rtry):
     return rtry[1][chc-1]
 
 #ui start
-banner()
-print("1-) Encrypt file (only txt files support)\n2-) Encrypt normal text\n")
-obs=input("Option : ")
-if int(obs)==1:
+#banner()
+print("1-)Encrypt normal text\n2-)Encrypt file (only txt files support)")
+line()
+obs=input("Option » ")
+line()
+if int(obs)==2:
     pass
-elif int(obs)==2:
-    clear()
-    banner()
-    text=input("Text -> ")
+elif int(obs)==1:
+
+
+    text=input("Text » ")
     text=text.upper()
     text=text.replace(" ","")
+    line()
     for y in range(0,len(text)):
         #final.append(call(oW,text[y],rtry))
         oW=call(oW,text[y],rtry)
         final=final+oW
-    clear()
-    banner()
+
     print("Normal text:",text,"\nEncrypted text:",final)
+    line()
 else:
     print("Wrong option.")
