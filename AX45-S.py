@@ -55,7 +55,7 @@ while stfb==True:
     fc=os.path.isfile(fn)
     if fc==True:
         f=open(fn,"r")
-        klst=f.read().split(",")
+        klst=f.read().replace("\n","").split(",")
         f.close()
         a=klst[0].split("-")
         rtry=[[],[]]
@@ -71,7 +71,6 @@ while stfb==True:
         if g!= 351:
             print("Key file is missing or incorrect.")
             pause()
-
         stfb=False
     else:
         clear()
@@ -136,7 +135,6 @@ while True:
         print("Decrypted text:",final)
         line()
         pause()
-
     elif int(obs)==4:
         oW=rtry[1][ord(a[1])-65]
         banner()
