@@ -1,6 +1,7 @@
 import os,time
-#functions
 
+
+#functions
 def banner():
     f=open("easy_command\\banner", "r")
     print(f.read())
@@ -31,6 +32,7 @@ def f_encrypt(oW,nW,rtry):
     else:
         chc=nwn-own
     return rtry[1][chc-1]
+
 def f_decrypt(oW,nW,rtry):
     own=int(rtry[0][rtry[1].index(oW)])
     nwn=int(rtry[0][rtry[1].index(nW)])
@@ -39,7 +41,6 @@ def f_decrypt(oW,nW,rtry):
     else:
         chc=nwn+own
     return rtry[1][chc-1]
-
 
 
 #key complier
@@ -52,7 +53,6 @@ while stfb==True:
     line()
     fn="key"+keynum+".ax"
     fc=os.path.isfile(fn)
-
     if fc==True:
         f=open(fn,"r")
         klst=f.read().split(",")
@@ -79,9 +79,6 @@ while stfb==True:
         line()
         print("Key file not found, make sure key file is in main directory.")
         pause()
-
-
-
 
 
 #ui start
