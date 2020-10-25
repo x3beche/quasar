@@ -49,8 +49,28 @@ print("1-)Encrypt normal text\n2-)Encrypt file (only txt files support)")
 line()
 obs=input("Option » ")
 line()
+
 if int(obs)==2:
-    pass
+    fnm=input("File Name » ")
+    line()
+    f=open(fnm+".txt","r")
+    text=f.read()
+    f.close()
+    text=text.upper()
+    text=text.replace(" ","")
+    text=text.replace("\n","")
+
+    for y in range(0,len(text)):
+        #final.append(call(oW,text[y],rtry))
+        oW=call(oW,text[y],rtry)
+        final=final+oW
+
+    f = open(fnm+"_ax.txt", "a")
+    f.write(final)
+    f.close()
+    print("Encryption process completed, %s_ax.txt created." %fnm)
+    line()
+
 elif int(obs)==1:
     text=input("Text » ")
     text=text.upper()
