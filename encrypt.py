@@ -1,5 +1,4 @@
 import os
-
 #functions
 def banner():
     f=open("keyOperations\\banner", "r")
@@ -34,7 +33,6 @@ else:
     banner()
     print("Key file not found, make sure key file is in keyOperations directory.")
     exit()
-
 #encrypt algorithm
 oW=rtry[1][ord(a[1])-65]
 final=""
@@ -46,9 +44,7 @@ def call(oW,nW,rtry):
     else:
         chc=nwn-own
     return rtry[1][chc-1]
-
 #ui start
-#banner()
 print("1-)Encrypt normal text\n2-)Encrypt file (only txt files support)")
 line()
 obs=input("Option » ")
@@ -56,8 +52,6 @@ line()
 if int(obs)==2:
     pass
 elif int(obs)==1:
-
-
     text=input("Text » ")
     text=text.upper()
     text=text.replace(" ","")
@@ -66,7 +60,6 @@ elif int(obs)==1:
         #final.append(call(oW,text[y],rtry))
         oW=call(oW,text[y],rtry)
         final=final+oW
-
     print("Normal text:",text,"\nEncrypted text:",final)
     line()
 else:
