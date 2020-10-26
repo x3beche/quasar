@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import os
 import time
 
@@ -31,7 +33,7 @@ def f_encrypt(oW,nW,rtry):
     own=int(rtry[0][rtry[1].index(oW)])
     nwn=int(rtry[0][rtry[1].index(nW)])
     if own>nwn:
-        chc=34-own+nwn
+        chc=40-own+nwn
     else:
         chc=nwn-own
     return rtry[1][chc-1]
@@ -39,8 +41,8 @@ def f_encrypt(oW,nW,rtry):
 def f_decrypt(oW,nW,rtry):
     own=int(rtry[0][rtry[1].index(oW)])
     nwn=int(rtry[0][rtry[1].index(nW)])
-    if own+nwn>34:
-        chc=own+nwn-34
+    if own+nwn>40:
+        chc=own+nwn-40
     else:
         chc=nwn+own
     return rtry[1][chc-1]
@@ -57,29 +59,30 @@ while stfb==True:
     fn="key"+keynum+".ax"
     fc=os.path.isfile(fn)
     if fc==True:
-        f=open(fn,"r")
+        f=open(fn,"r",encoding='utf-8')
         klst=f.read().replace("\n","").split("{")
         f.close()
         a=klst[0].split("}")
         rtry=[[],[]]
-        for x in range(0,34):
+        for x in range(0,40):
             cache=klst[x].split("}")
-            print(cache[0],cache[1])
             rtry[0].append(cache[0])
             rtry[1].append(cache[1])
             cache.clear()
         g=0
         for z in range(0,len(rtry[0])):
             g=g+int(rtry[0][z])
-        if g!= 595:
+        if g!= 820:
             print("Key file is missing or incorrect.")
+            line()
             pause()
         stfb=False
     else:
-        clear()
-        banner()
-        line()
+        #clear()
+        #banner()
+
         print("Key file not found, make sure key file is in main directory.")
+        line()
         pause()
 
 
