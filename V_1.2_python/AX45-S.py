@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import os
 import time
 
@@ -14,7 +12,7 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def pause():
-    input("\nPress ENTER to do another action.")
+    input("\nPress ENTER to turn main menu.")
 
 def line():
     print("-----------------------------------------------------")
@@ -33,7 +31,7 @@ def f_encrypt(oW,nW,rtry):
     own=int(rtry[0][rtry[1].index(oW)])
     nwn=int(rtry[0][rtry[1].index(nW)])
     if own>nwn:
-        chc=40-own+nwn
+        chc=34-own+nwn
     else:
         chc=nwn-own
     return rtry[1][chc-1]
@@ -41,12 +39,23 @@ def f_encrypt(oW,nW,rtry):
 def f_decrypt(oW,nW,rtry):
     own=int(rtry[0][rtry[1].index(oW)])
     nwn=int(rtry[0][rtry[1].index(nW)])
-    if own+nwn>40:
-        chc=own+nwn-40
+    if own+nwn>34:
+        chc=own+nwn-34
     else:
         chc=nwn+own
     return rtry[1][chc-1]
 
+keyFiles=[]
+with os.scandir('operationFiles/') as entries:
+    for entry in entries:
+        if entry.name[::-1][:2][::-1]=="ax":
+            keyFiles.append(entry.name)
+textFiles=[]
+textFiles.clear()
+with os.scandir('operationFiles/') as entries:
+    for entry in entries:
+        if entry.name[::-1][:3][::-1]=="txt":
+            textFiles.append(entry.name)
 
 #key complier
 stfb=True
@@ -54,17 +63,20 @@ while stfb==True:
     clear()
     banner()
     line()
-    keynum=input("Enter the number at the end of the key file : ")
+    for q in range(0,len(keyFiles)):
+        print(str(q+1)+"-)",keyFiles[q])
     line()
-    fn="keys\\key"+keynum+".ax"
+    keynum=input("Enter your key selection: » ")
+    line()
+    fn="operationFiles\\"+keyFiles[int(keynum)-1]
     fc=os.path.isfile(fn)
     if fc==True:
-        f=open(fn,"r",encoding='utf-8')
+        f=open(fn,"r")
         klst=f.read().replace("\n","").split("{")
         f.close()
         a=klst[0].split("}")
         rtry=[[],[]]
-        for x in range(0,40):
+        for x in range(0,34):
             cache=klst[x].split("}")
             rtry[0].append(cache[0])
             rtry[1].append(cache[1])
@@ -72,13 +84,13 @@ while stfb==True:
         g=0
         for z in range(0,len(rtry[0])):
             g=g+int(rtry[0][z])
-        if g!= 820:
+        if g!= 595:
             print("Key file is missing or incorrect.")
             line()
             pause()
         stfb=False
     else:
-        print("Key file not found, make sure key file is in keys directory.")
+        print("Key file not found, make sure key file is in keys-text directory.")
         line()
         pause()
 
@@ -88,27 +100,36 @@ while True:
     clear()
     banner()
     line()
-    print("1-)Encrypt normal text\n2-)Encrypt file (only txt files support)\n3-)Decrypt normal text\n4-)Decrypt file (only txt files support)\n5-)Key viewer")
+    print("1-)Encrypt normal text\n2-)Decrypt normal text\n3-)Encrypt file\n4-)Decrypt file\n5-)Key viewer")
     line()
     obs=input("Option » ")
     clear()
-    if int(obs)==2:
+    if int(obs)==3:
+        textFiles=[]
+        textFiles.clear()
+        with os.scandir('operationFiles/') as entries:
+            for entry in entries:
+                if entry.name[::-1][:3][::-1]=="txt":
+                    textFiles.append(entry.name)
         oW=rtry[1][ord(a[1])-65]
         banner()
         line()
         final=""
+        for q in range(0,len(textFiles)):
+            print(str(q+1)+"-)",textFiles[q])
+        line()
         fnm=input("File Name » ")
         line()
-        f=open(fnm+".txt","r")
+        f=open("operationFiles\\"+textFiles[int(fnm)-1],"r")
         text=f.read().upper().replace("\n","")
         f.close()
         for y in range(0,len(text)):
             oW=f_encrypt(oW,text[y],rtry)
             final=final+oW
-        f = open(fnm+"_ax-en.txt", "a")
+        f = open("operationFiles\\"+textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-4]+".axen","a")
         f.write(final)
         f.close()
-        print("Encryption process completed, %s_ax-en.txt created." %fnm)
+        print("Encryption process completed,",textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-4]+".axen created.")
         line()
         pause()
     elif int(obs)==1:
@@ -125,7 +146,7 @@ while True:
         print("Encrypted text »",final)
         line()
         pause()
-    elif int(obs)==3:
+    elif int(obs)==2:
         oW=rtry[1][ord(a[1])-65]
         banner()
         line()
@@ -140,23 +161,32 @@ while True:
         line()
         pause()
     elif int(obs)==4:
+        textFiles=[]
+        textFiles.clear()
+        with os.scandir('operationFiles/') as entries:
+            for entry in entries:
+                if entry.name[::-1][:4][::-1]=="axen":
+                    textFiles.append(entry.name)
         oW=rtry[1][ord(a[1])-65]
         banner()
         line()
-        final=""
-        fnm=input("File Name » ")
+        for q in range(0,len(textFiles)):
+            print(str(q+1)+"-)",textFiles[q])
         line()
-        f=open(fnm+".txt","r")
+        final=""
+        fnm=input("Which file » ")
+        line()
+        f=open("operationFiles\\"+textFiles[int(fnm)-1],"r")
         text=f.read().upper().replace("\n","")
         f.close()
         for y in range(0,len(text)):
             nW=text[y]
             final=final+f_decrypt(oW,nW,rtry)
             oW=text[y]
-        f = open(fnm+"_ax-de.txt", "a")
+        f = open("operationFiles\\"+textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-5]+".txt","a")
         f.write(final)
         f.close()
-        print("Encryption process completed, %s_ax-de.txt created." %fnm)
+        print("Decryption process completed,",textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-5]+".txt created.")
         line()
         pause()
     elif int(obs)==5:
