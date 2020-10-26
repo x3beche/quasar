@@ -56,7 +56,7 @@ while stfb==True:
     line()
     keynum=input("Enter the number at the end of the key file : ")
     line()
-    fn="key"+keynum+".ax"
+    fn="keys\\key"+keynum+".ax"
     fc=os.path.isfile(fn)
     if fc==True:
         f=open(fn,"r",encoding='utf-8')
@@ -78,10 +78,7 @@ while stfb==True:
             pause()
         stfb=False
     else:
-        #clear()
-        #banner()
-
-        print("Key file not found, make sure key file is in main directory.")
+        print("Key file not found, make sure key file is in keys directory.")
         line()
         pause()
 
