@@ -3,4 +3,7 @@ Is a crypto system that uses only its own unique algorithms that do not use any 
 
 Note: Custom Turkish characters are not supported. Only ASCII printable characters (shown in the table below) are supported.
 
-![alt text](https://i.ibb.co/gPm5v9F/397-3973028-images-ascii-table-ascii-table-printable-hd-png.png)
+
+<p align="center">
+  <img width="601" height="491" src="https://i.ibb.co/gPm5v9F/397-3973028-images-ascii-table-ascii-table-printable-hd-png.png">
+</p>
