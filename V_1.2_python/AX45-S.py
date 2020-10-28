@@ -4,7 +4,7 @@ import time
 
 #functions
 def banner():
-    f=open("easy_command\\banner", "r")
+    f=open("easy_command/banner", "r")
     print(f.read())
     f.close()
 
@@ -63,7 +63,7 @@ while stfb==True:
     line()
     keynum=input("Enter your key selection: » ")
     line()
-    fn="operationFiles\\"+keyFiles[int(keynum)-1]
+    fn="operationFiles/"+keyFiles[int(keynum)-1]
     fc=os.path.isfile(fn)
     if fc==True:
         f=open(fn,"r")
@@ -116,13 +116,13 @@ while True:
             line()
             fnm=input("File Name » ")
             line()
-            f=open("operationFiles\\"+textFiles[int(fnm)-1],"r")
+            f=open("operationFiles/"+textFiles[int(fnm)-1],"r")
             text=f.read().replace("\n","")
             f.close()
             for y in range(0,len(text)):
                 oW=f_encrypt(oW,text[y],rtry)
                 final=final+oW
-            f = open("operationFiles\\"+textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-4]+".axen","a")
+            f = open("operationFiles/"+textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-4]+".axen","a")
             f.write(final)
             f.close()
             print("Encryption process completed,",textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-4]+".axen created.")
@@ -185,14 +185,14 @@ while True:
             final=""
             fnm=input("Which file » ")
             line()
-            f=open("operationFiles\\"+textFiles[int(fnm)-1],"r")
+            f=open("operationFiles/"+textFiles[int(fnm)-1],"r")
             text=f.read().replace("\n","")
             f.close()
             for y in range(0,len(text)):
                 nW=text[y]
                 final=final+f_decrypt(oW,nW,rtry)
                 oW=text[y]
-            f = open("operationFiles\\"+textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-5]+".txt","a")
+            f = open("operationFiles/"+textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-5]+".txt","a")
             f.write(final)
             f.close()
             print("Decryption process completed,",textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-5]+".txt created.")

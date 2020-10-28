@@ -4,7 +4,7 @@ import random,time
 def line():
     print("-----------------------------------------------------")
 def banner():
-    f=open("easy_command\\banner", "r")
+    f=open("easy_command/banner", "r")
     print(f.read())
     f.close()
 def rnlm():
@@ -29,7 +29,7 @@ for y in range(1,95):
             rll[1].append(y)
             rll[0].append(rl[0][z])
 rfn=random.randint(1,10**4)
-fn="operationFiles\\key"+str(rfn)+".ax"
+fn="operationFiles/key"+str(rfn)+".ax"
 f = open(fn, "a")
 for a in range(0,94):
     f.write(str(rll[1][a]))
