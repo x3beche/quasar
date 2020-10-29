@@ -1,22 +1,17 @@
 import os
 import time
 
-
 #functions
 def banner():
     f=open("easy_command/banner", "r")
     print(f.read())
     f.close()
-
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
-
 def pause():
     input("\nPress ENTER to turn main menu.")
-
 def line():
     print("-----------------------------------------------------")
-
 def opnr(data):
     print("\n")
     f = open(data, "r")
