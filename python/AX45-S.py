@@ -104,7 +104,7 @@ while True:
                 if entry.name[::-1][:3][::-1]=="txt":
                     textFiles.append(entry.name)
         if len(textFiles)>=1:
-            oW=rtry[1][ord(a[1])]
+            oW=rtry[1][ord(a[1])-32]
             final=""
             for q in range(0,len(textFiles)):
                 print(str(q+1)+"-)",textFiles[q])
@@ -128,7 +128,7 @@ while True:
             line()
             pause()
     elif int(obs)==1:
-        oW=rtry[1][ord(a[1])]
+        oW=rtry[1][ord(a[1])-32]
         banner()
         line()
         final='"'
@@ -146,7 +146,7 @@ while True:
         line()
         pause()
     elif int(obs)==2:
-        oW=rtry[1][ord(a[1])]
+        oW=rtry[1][ord(a[1])-32]
         banner()
         line()
         final=""
@@ -173,7 +173,7 @@ while True:
         banner()
         line()
         if len(textFiles)>=1:
-            oW=rtry[1][ord(a[1])]
+            oW=rtry[1][ord(a[1])-32]
             for q in range(0,len(textFiles)):
                 print(str(q+1)+"-)",textFiles[q])
             line()

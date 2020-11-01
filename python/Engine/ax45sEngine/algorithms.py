@@ -33,17 +33,17 @@ def keyComplier(fn):
 def axen(text,keyNumber):
     a=keyComplier(keyNumber)[1]
     rtry=keyComplier(keyNumber)[0]
-    oW=rtry[1][ord(a[1])]
+    oW=rtry[1][ord(a[1])-32]
     final=''
     for y in range(0,len(text)):
         oW=f_encrypt(oW,text[y],rtry)
         final=final+oW
     return final
-    
+
 def axde(text,keyNumber):
     a=keyComplier(keyNumber)[1]
     rtry=keyComplier(keyNumber)[0]
-    oW=rtry[1][ord(a[1])]
+    oW=rtry[1][ord(a[1])-32]
     final=''
     for y in range(0,len(text)):
         nW=text[y]
