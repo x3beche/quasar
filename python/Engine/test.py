@@ -1,6 +1,6 @@
 from ax45sEngine.algorithms import axen,axde
 
-text="AX45-S Crypto Algorithm"
+text="sasasasasasasasasasasasasa"
 encrypted=axen(text,1001)
 
 print("This encrypt state : ",axen(text,1001))

@@ -31,7 +31,7 @@ def keyComplier(fn):
         rtry[1].append(cache[1])
         cache.clear()
     return rtry,a
-def axen(text,keyNumber):
+def axen_algorithm(text,keyNumber):
     a=keyComplier(keyNumber)[1]
     rtry=keyComplier(keyNumber)[0]
     oW=rtry[1][ord(a[1])-32]
@@ -40,7 +40,7 @@ def axen(text,keyNumber):
         oW=f_encrypt(oW,text[y],rtry)
         final=final+oW
     return final
-def axde(text,keyNumber):
+def axde_algorithm(text,keyNumber):
     a=keyComplier(keyNumber)[1]
     rtry=keyComplier(keyNumber)[0]
     oW=rtry[1][ord(a[1])-32]
@@ -50,6 +50,10 @@ def axde(text,keyNumber):
         final=final+f_decrypt(oW,nW,rtry)
         oW=text[y]
     return final
+def axen(text,keyNumber):
+    return axen_algorithm(axen_algorithm(text,keyNumber),keyNumber)
+def axde(text,keyNumber):
+    return axde_algorithm(axde_algorithm(text,keyNumber),keyNumber)
 def opnr(data):
     print('\n')
     f = open(data, 'r')
@@ -164,7 +168,7 @@ while True:
             text=f.read().replace("\n","")
             f.close()
             f = open("operationFiles/"+textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-4]+".axen","a")
-            f.write(axde(text,key))
+            f.write(axen(text,key))
             f.close()
             print("Encryption process completed,",textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-4]+".axen created.")
             line()
@@ -188,7 +192,7 @@ while True:
             text=f.read().replace("\n","")
             f.close()
             f = open("operationFiles/"+textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-5]+".txt","a")
-            f.write(axen(text,key))
+            f.write(axde(text,key))
             f.close()
             print("Decryption process completed,",textFiles[int(fnm)-1][:len(textFiles[int(fnm)-1])-5]+".txt created.")
             line()

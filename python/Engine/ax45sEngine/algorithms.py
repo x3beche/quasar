@@ -30,7 +30,7 @@ def keyComplier(fn):
         cache.clear()
     return rtry,a
 
-def axen(text,keyNumber):
+def axen_algorithm(text,keyNumber):
     a=keyComplier(keyNumber)[1]
     rtry=keyComplier(keyNumber)[0]
     oW=rtry[1][ord(a[1])-32]
@@ -40,7 +40,7 @@ def axen(text,keyNumber):
         final=final+oW
     return final
 
-def axde(text,keyNumber):
+def axde_algorithm(text,keyNumber):
     a=keyComplier(keyNumber)[1]
     rtry=keyComplier(keyNumber)[0]
     oW=rtry[1][ord(a[1])-32]
@@ -50,3 +50,8 @@ def axde(text,keyNumber):
         final=final+f_decrypt(oW,nW,rtry)
         oW=text[y]
     return final
+
+def axen(text,keyNumber):
+    return axen_algorithm(axen_algorithm(text,keyNumber),keyNumber)
+def axde(text,keyNumber):
+    return axde_algorithm(axde_algorithm(text,keyNumber),keyNumber)
