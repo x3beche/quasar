@@ -19,7 +19,7 @@ def f_decrypt(oW,nW,rtry):
         chc=nwn+own
     return rtry[1][chc-1]
 def keyComplier(fn):
-    fn='operationFiles\key'+str(fn)+'.ax'
+    fn='operationFiles/key'+str(fn)+'.ax'
     f=open(fn,'r')
     klst=f.read().replace('\n','').split('split')
     f.close()
