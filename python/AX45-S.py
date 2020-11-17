@@ -134,7 +134,7 @@ while True:
         line()
         print('Entered Text   » "'+text+'"')
         line()
-        print('Decrypted Text » "'+axen(text,key)+'"')
+        print('Encrypted Text » "'+axen(text,key)+'"')
         line()
         pause()
     elif obs==2:
@@ -162,7 +162,7 @@ while True:
             for q in range(0,len(textFiles)):
                 print(str(q+1)+"-)",textFiles[q])
             line()
-            fnm=input("File Name » ")
+            fnm=input("Which file » ")
             line()
             f=open("operationFiles/"+textFiles[int(fnm)-1],"r")
             text=f.read().replace("\n","")
