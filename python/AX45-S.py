@@ -1,3 +1,5 @@
+#  AX45-S Algorithm by x3beche
+
 #Required libraries
 import os,time
 
