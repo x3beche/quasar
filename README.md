@@ -3,10 +3,9 @@ Is a crypto system that uses only its own unique algorithms that do not use any 
 
 Note: Custom Turkish characters are not supported. Only ASCII printable characters (shown in the table below) are supported.
 
+Usage instructions link: [I shared on Medium](https://x3beche.medium.com/ax45-s-operating-instructions-4d668d76781).
  
 <p>&nbsp;</p>
-
-
 <p align="center">
-  <img width="601" height="491" src="https://i.ibb.co/gPm5v9F/397-3973028-images-ascii-table-ascii-table-printable-hd-png.png">
+<img width="601" height="491" src="https://i.ibb.co/gPm5v9F/397-3973028-images-ascii-table-ascii-table-printable-hd-png.png">
 </p>
