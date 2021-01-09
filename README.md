@@ -3,7 +3,7 @@ Is a crypto system that uses only its own unique algorithms that do not use any 
 
 Operating instructions link : [I shared on Medium](https://x3beche.medium.com/ax45-s-operating-instructions-4d668d76781)
 
-Note: Custom Turkish characters are not supported. Only ASCII printable characters (shown in the table below) are supported. 
+Note: Custom Turkish characters are not supported. Only ASCII printable characters (shown in the table of key cluster below) are supported. 
 <p>&nbsp;</p>
 <p align="center">
 <img width="1022" height="602" src="https://raw.githubusercontent.com/x3beche/AX45-S/master/pdfDocuments/algoritma.png">
